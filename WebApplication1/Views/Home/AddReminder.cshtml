@@ -1,0 +1,31 @@
+﻿@model ReminderViewModel
+@{
+    ViewData["Title"] = "Reminder";
+}
+
+
+<div>
+    <ul>
+        @foreach (var reminder in Model.Reminders)
+        {
+            // cut for brevity, need to add back more code from original
+            <li>
+                <input id="reminder" type="checkbox" value="true" name="Remember" asp-for="@reminder.IsCompleted" />
+                <label id="reminder" style="margin-left:30px;">@reminder.Name</label>
+            </li>
+        }
+    </ul>
+
+    <div>
+        <a href="HomeController/ActionMethod">
+            <input type="button" value="Click Me" />
+        </a>
+    </div>
+
+    <form id="myform"  asp-action="AddReminder">
+
+        Reminder Name  <input type="text" id="reminderName" name="reminderName" />
+        <input type="submit" id="btn1" value="send" />
+    </form>
+</div>
+
